@@ -6,7 +6,7 @@ import upload from "../middleware/multer.middleware.js";
 
 router.route('/')
     .get(getAllCourses)
-    .post(isLoggedIn, authorisedRoles('ADMIN'), upload.single("thumbnail"), createCourse)
+    .post(createCourse) //isLoggedIn, authorisedRoles('ADMIN'), upload.single("thumbnail"), 
     .delete(isLoggedIn, authorisedRoles('ADMIN'), deleteCourseLecture)
     .put(isLoggedIn, authorisedRoles('ADMIN'), upload.single("lecture"), updateCourseLecture)
 

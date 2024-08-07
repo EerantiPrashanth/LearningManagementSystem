@@ -44,15 +44,15 @@ export default function AddLecture() {
 
   async function onFormSubmit(e) {
     e.preventDefault();
-    if (!userInput.lecture || !userInput.title || !userInput.description) {
-      toast.error("All fields are mandatory");
+    if (!userInput.title || !userInput.description) { //!userInput.lecture || 
+      toast.error("All fields are mandatory"); 
       return;
     }
 
     setIsLoading(true);
 
     const formData = new FormData();
-    formData.append("lecture", userInput.lecture);
+    // formData.append("lecture", userInput.lecture);
     formData.append("title", userInput.title);
     formData.append("description", userInput.description);
 

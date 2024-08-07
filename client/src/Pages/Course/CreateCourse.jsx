@@ -52,22 +52,23 @@ export default function CreateCourse() {
       !userInput.title ||
       !userInput.description ||
       !userInput.category ||
-      !userInput.createdBy ||
-      !userInput.thumbnail
+      !userInput.createdBy 
+      // !userInput.thumbnail
     ) {
       toast.error("All field are required!");
       return;
     }
 
     setIsCreatingCourse(true);
-    const formData = new FormData();
-    formData.append("title", userInput.title);
-    formData.append("description", userInput.description);
-    formData.append("category", userInput.category);
-    formData.append("createdBy", userInput.createdBy);
-    formData.append("thumbnail", userInput.thumbnail);
+    
+    // const formData = new FormData();
+    // formData.append("title", userInput.title);
+    // formData.append("description", userInput.description);
+    // formData.append("category", userInput.category);
+    // formData.append("createdBy", userInput.createdBy);
+    // formData.append("thumbnail", userInput.thumbnail);
 
-    const response = await dispatch(createNewCourse(formData));
+    const response = await dispatch(createNewCourse(userInput)); //formData
     if (response?.payload?.success) {
       setUserInput({
         title: "",
