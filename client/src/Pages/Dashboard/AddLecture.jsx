@@ -51,13 +51,13 @@ export default function AddLecture() {
 
     setIsLoading(true);
 
-    const formData = new FormData();
-    // formData.append("lecture", userInput.lecture);
-    formData.append("title", userInput.title);
-    formData.append("description", userInput.description);
+    // const formData = new FormData();
+    // // formData.append("lecture", userInput.lecture);
+    // formData.append("title", userInput.title);
+    // formData.append("description", userInput.description);
 
-    const data = { formData, id: userInput.id };
-
+    const data = { userInput, id: userInput.id };
+    console.log("userinput",data)
     const response = await dispatch(addCourseLecture(data));
     if (response?.payload?.success) {
       navigate(-1);
@@ -123,8 +123,8 @@ export default function AddLecture() {
                   </label>
                 )}
                 <input
-                  type="file"
-                  className="hidden"
+                  type="text"
+                  // className="hidden"
                   id="lecture"
                   ref={videoRef}
                   name="lecture"

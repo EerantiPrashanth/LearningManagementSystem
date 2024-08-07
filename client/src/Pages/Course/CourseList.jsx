@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllCourses } from "../../Redux/Slices/CourseSlice";
 import CourseCard from "../../Components/CourseCard";
 import Layout from "../../Layout/Layout";
-
+import YouTubeVideo from "../../Components/YouTube/ReactVideo";
+import './CourseList.css'
 export default function CourseList() {
   const dispatch = useDispatch();
 
@@ -26,6 +27,11 @@ export default function CourseList() {
             Industry experts
           </span>
         </h1>
+        <div className="flex gap-12 md:justify-start justify-center flex-wrap">
+        <YouTubeVideo videoId="pMzGDBP6Bic"/>
+        <YouTubeVideo videoId="Hg4ahTQlBm0"/>
+        </div>
+        
         {/* course container */}
         <div className="flex gap-12 md:justify-start justify-center flex-wrap">
           {coursesData?.map((element) => {
