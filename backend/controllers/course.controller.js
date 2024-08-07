@@ -59,18 +59,18 @@ const createCourse = async (req, res, next) => {
         }
 
         // file upload
-        if (req.file) {
-            const result = await cloudinary.v2.uploader.upload(req.file.path, {
-                folder: 'Learning-Management-System'
-            })
+        // if (req.file) {
+        //     const result = await cloudinary.v2.uploader.upload(req.file.path, {
+        //         folder: 'Learning-Management-System'
+        //     })
 
-            if (result) {
-                course.thumbnail.public_id = result.public_id;
-                course.thumbnail.secure_url = result.secure_url;
-            }
+        //     if (result) {
+        //         course.thumbnail.public_id = result.public_id;
+        //         course.thumbnail.secure_url = result.secure_url;
+        //     }
 
-            fs.rmSync(`uploads/${req.file.filename}`);
-        }
+        //     fs.rmSync(`uploads/${req.file.filename}`);
+        // }
 
         await course.save();
 
