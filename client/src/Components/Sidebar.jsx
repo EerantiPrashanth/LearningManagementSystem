@@ -74,7 +74,7 @@ export default function Sidebar({ hideBar = false }) {
               </Link>
             </li>
 
-            {role === "ADMIN" && (
+            {/* {role === "ADMIN" && ( */}
               <li>
                 <Link to="/admin/dashboard" className="flex gap-4 items-center">
                   <FaUserCircle
@@ -84,9 +84,9 @@ export default function Sidebar({ hideBar = false }) {
                   Admin DashBoard
                 </Link>
               </li>
-            )}
+            {/* )} */}
 
-            {role === "ADMIN" && (
+            {/* {role === "ADMIN" && ( */}
               <li>
                 <Link to="/course/create" className="flex gap-4 items-center">
                   <FaPlus
@@ -96,7 +96,7 @@ export default function Sidebar({ hideBar = false }) {
                   Create new course
                 </Link>
               </li>
-            )}
+            {/* )} */}
 
             <li>
               <Link to="/courses" className="flex gap-4 items-center">
@@ -128,7 +128,8 @@ export default function Sidebar({ hideBar = false }) {
               </Link>
             </li>
 
-            {isLoggedIn ? (
+            {/* {isLoggedIn ? ( */}
+
               <li className="absolute bottom-4 w-[90%]">
                 <div className="w-full flex md:flex-row flex-col gap-2 items-center justify-center">
                   <button className="btn-primary px-3.5 py-2.5 font-semibold rounded-md w-full">
@@ -143,7 +144,9 @@ export default function Sidebar({ hideBar = false }) {
                   </button>
                 </div>
               </li>
-            ) : (
+
+            {/* ) : ( */}
+
               <li className="absolute bottom-4 w-[90%]">
                 <div className="w-full flex items-center justify-center">
                   <button className="btn-primary px-3.5 py-2.5 font-semibold rounded-md w-full">
@@ -154,7 +157,8 @@ export default function Sidebar({ hideBar = false }) {
                   </button>
                 </div>
               </li>
-            )}
+
+            {/* )} */}
           </ul>
         </div>
       </div>
