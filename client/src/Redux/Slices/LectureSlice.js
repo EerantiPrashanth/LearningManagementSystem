@@ -23,7 +23,7 @@ export const getCourseLectures = createAsyncThunk("/courses/lecture/get", async 
 export const addCourseLecture = createAsyncThunk("/courses/lecture/add", async (data) => {
     const loadingId = toast.loading("Adding Lecture...");
     try {
-        const res = await axiosInstance.post(`/courses/${data.id}`, data.formData);
+        const res = await axiosInstance.post(`/courses/${data.id}`, data.userInput);
         toast.success("Lecture Added Successfully", { id: loadingId })
         return res?.data;
     } catch (error) {
@@ -31,6 +31,7 @@ export const addCourseLecture = createAsyncThunk("/courses/lecture/add", async (
         throw error
     }
 })
+
 
 // .....delete course lecture for a specific course....
 export const deleteCourseLecture = createAsyncThunk("/courses/lecture/delete", async (data) => {
