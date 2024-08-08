@@ -19,6 +19,7 @@ export default function CreateCourse() {
     description: "",
     thumbnail: null,
     previewImage: "",
+    imageSrc:"",
   });
 
   function handleImageUpload(e) {
@@ -77,6 +78,7 @@ export default function CreateCourse() {
         description: "",
         thumbnail: null,
         previewImage: "",
+        imageSrc:""
       });
     }
     setIsCreatingCourse(false);
@@ -112,14 +114,15 @@ export default function CreateCourse() {
                     </div>
                   )}
                 </label>
-                <input
+                {/* <input
                   className="hidden"
                   type="file"
                   id="image_uploads"
                   accept=".jpg, .jpeg, .png"
                   name="image_uploads"
                   onChange={handleImageUpload}
-                />
+                /> */}
+                <input type="text" onChange={handleUserInput} name="imageSrc" placeholder="Place Your URL here......." value={userInput.imageSrc}/>
               </div>
               {/* title */}
               <InputBox
@@ -172,7 +175,9 @@ export default function CreateCourse() {
             {isCreatingCourse ? "Creating Course..." : "Create Course"}
           </button>
         </form>
+        
       </section>
     </Layout>
+
   );
 }

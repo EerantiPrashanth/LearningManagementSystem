@@ -14,7 +14,8 @@ export default function CourseCard({ data }) {
       <div className="relative overflow-hidden">
         <img
           className="h-48 w-full rounded-tl-lg rounded-tr-lg group-hover:scale-[1.05] transition-all ease-in-out duration-300"
-          src={data?.thumbnail?.secure_url}
+          // src={data?.thumbnail?.secure_url}
+          src={data?.imageSrc}
           alt="course thumbnail"
         />
         <div className="absolute top-2 right-2 p-2 bg-white dark:bg-zinc-700 rounded-full">
@@ -40,6 +41,7 @@ export default function CourseCard({ data }) {
           <FaUser className="text-yellow-500 dark:text-yellow-400" />
           <p className="text-base font-semibold">
             Instructor: {data?.createdBy}
+            {console.log("data",data?.imageSrc)}
           </p>
         </div>
       </div>

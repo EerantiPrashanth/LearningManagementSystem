@@ -22,8 +22,10 @@ export default function CourseDescription() {
             <img
               className="md:w-[87%] w-full h-auto lg:h-64 rounded-md shadow-md"
               alt="thumbnail"
-              src={state?.thumbnail?.secure_url}
+              // src={state?.thumbnail?.secure_url}
+              src={state?.imageSrc}
             />
+            {console.log(state)}
 
             <div className="space-y-4">
               <div className="flex flex-col text-lg font-inter">
