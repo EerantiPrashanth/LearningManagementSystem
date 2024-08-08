@@ -6,6 +6,7 @@ import {
   deleteCourseLecture,
 } from "../../Redux/Slices/LectureSlice";
 import Layout from "../../Layout/Layout";
+import YouTubeVideo from "../../Components/YouTube/ReactVideo";
 
 export default function DisplayLecture() {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ export default function DisplayLecture() {
             {/* left section for lecture video and details */}
             <div className="md:w-[48%] w-full md:p-3 p-1 overflow-y-scroll md:h-full h-[40%] flex justify-center">
               <div className="w-full h-[170px] border bg-[#0000003d] shadow-lg">
-                <video
+                {/* <video
                   src={
                     lectures && lectures?.[currentVideo]?.lecture?.secure_url
                   }
@@ -50,7 +51,11 @@ export default function DisplayLecture() {
                   controls
                   controlsList="nodownload"
                   className="h-full mx-auto"
-                ></video>
+                ></video> */}
+
+                <YouTubeVideo videoId={lectures && lectures?.[currentVideo]?.youtubeCode}/>
+
+
                 <div className="py-7">
                   <h1 className="text-[17px] text-gray-700 font-[500] dark:text-white font-lato">
                     <span className="text-blue-500 dark:text-yellow-500 font-inter font-semibold text-lg">
@@ -59,6 +64,11 @@ export default function DisplayLecture() {
                     </span>
                     {lectures && lectures?.[currentVideo]?.title}
                   </h1>
+
+                {/* { lectures.map(each=>console.log(each.youtubeCode)) }  */}
+
+                {console.log(lectures && lectures?.[currentVideo]?.youtubeCode)}
+
                   <p className="text-[16.5px] pb-12 text-gray-700 font-[500] dark:text-slate-300 font-lato">
                     <span className="text-blue-500 dark:text-yellow-500 font-inter font-semibold text-lg">
                       Description:{" "}

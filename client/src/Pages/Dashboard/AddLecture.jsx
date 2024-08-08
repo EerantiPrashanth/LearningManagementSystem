@@ -18,10 +18,11 @@ export default function AddLecture() {
   const videoRef = useRef(null);
   const [userInput, setUserInput] = useState({
     id: courseDetails?._id,
-    lecture: undefined,
+    lecture:undefined,
     title: "",
     description: "",
     videoSrc: "",
+    youtubeCode:""
   });
 
   function handleInputChange(e) {
@@ -122,15 +123,16 @@ export default function AddLecture() {
                     Choose Your Video
                   </label>
                 )}
-                <input
-                  type="text"
-                  // className="hidden"
+                {/* <input
+                  type="file"
+                  className="hidden"
                   id="lecture"
                   ref={videoRef}
                   name="lecture"
                   onChange={handleVideo}
                   accept="video/mp4, video/x-mp4, video/*"
-                />
+                /> */}
+                <input type="text" onChange={handleInputChange}  name={"youtubeCode"}/>
               </div>
             </div>
             <div className="md:w-[48%] w-full flex flex-col gap-5">
