@@ -137,7 +137,7 @@ const updateCourse = async (req, res, next) => {
 const removeCourse = async (req, res, next) => {
     try {
         const { id } = req.params;
-
+        console.log("delete on backend", id)
         const course = await courseModel.findById(id);
 
         if (!course) {

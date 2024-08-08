@@ -58,29 +58,29 @@ userSchema.pre('save', async function (next) {
     return next();
 });
 
-userSchema.methods = {
-    generateJWTToken: function () {
-        return jwt.sign(
-            { id: this._id, email: this.email, role: this.role },
-            process.env.JWT_SECRET,
-            { expiresIn: process.env.JWT_EXPIRY }
-        )
-    },
+// userSchema.methods = {
+//     generateJWTToken: function () {
+//         return jwt.sign(
+//             { id: this._id, email: this.email, role: this.role },
+//             process.env.JWT_SECRET,
+//             { expiresIn: process.env.JWT_EXPIRY }
+//         )
+//     },
 
-    generatePasswordResetToken: async function () {
-        const resetToken = await crypto.randomBytes(20).toString('hex');
+//     generatePasswordResetToken: async function () {
+//         const resetToken = await crypto.randomBytes(20).toString('hex');
 
-        this.forgotPasswordToken = await crypto
-            .createHash('sha256')  
-            .update(resetToken)
-            .digest('hex');
+//         this.forgotPasswordToken = await crypto
+//             .createHash('sha256')  
+//             .update(resetToken)
+//             .digest('hex');
 
-        this.forgotPasswordExpiry = Date.now() + 15 * 60 * 1000; // 15 min from now
+//         this.forgotPasswordExpiry = Date.now() + 15 * 60 * 1000; // 15 min from now
 
-        return resetToken;
-    }
+//         return resetToken;
+//     }
 
-}
+// }
 
 
 export default model("User", userSchema);
