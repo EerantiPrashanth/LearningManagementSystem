@@ -41,7 +41,9 @@ const getLecturesByCourseId = async (req, res, next) => {
 // create course
 const createCourse = async (req, res, next) => {
     try {
-        const { title, description, category, createdBy } = req.body;
+        const { title, description, category, createdBy,imageSrc } = req.body;
+
+        console.log("request bidy",req.body)
 
         if (!title || !description || !category || !createdBy) {
             return next(new AppError('All fields are required', 400));
@@ -51,7 +53,7 @@ const createCourse = async (req, res, next) => {
             title,
             description,
             category,
-            createdBy
+            createdBy,imageSrc
         })
 
         if (!course) {

@@ -28,6 +28,7 @@ const courseSchema = new Schema({
             type: String
         }
     },
+    imageSrc:{type:String},
     lectures: [
         {
             title: String,
