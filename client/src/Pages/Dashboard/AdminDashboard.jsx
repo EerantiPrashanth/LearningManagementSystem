@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 
 import Layout from "../../Layout/Layout";
 import { getAllCourses, deleteCourse } from "../../Redux/Slices/CourseSlice";
-import { getPaymentRecord } from "../../Redux/Slices/RazorpaySlice";
+// import { getPaymentRecord } from "../../Redux/Slices/RazorpaySlice";
 import { getStatsData } from "../../Redux/Slices/StatSlice";
 ChartJS.register(
   ArcElement,
@@ -35,11 +35,8 @@ export default function AdminDashboard() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { allUsersCount, subscribedCount } = useSelector((state) => state.stat);
+  // const { allUsersCount, subscribedCount } = useSelector((state) => state.stat);
 
-  const { allPayments } = useSelector(
-    (state) => state.razorpay
-  );
   const monthlySalesRecord = [1, 3, 7, 8, 10, 0, 5]
 
   const userData = {
@@ -48,7 +45,7 @@ export default function AdminDashboard() {
     datasets: [
       {
         label: "User Details",
-        data: [allUsersCount, subscribedCount],
+        // data: [allUsersCount, subscribedCount],
         backgroundColor: ["yellow", "green"],
         borderWidth: 1,
         borderColor: ["yellow", "green"],
@@ -97,8 +94,8 @@ export default function AdminDashboard() {
   useEffect(() => {
     (async () => {
       await dispatch(getAllCourses());
-      await dispatch(getStatsData());
-      await dispatch(getPaymentRecord());
+      // await dispatch(getStatsData());
+      // await dispatch(getPaymentRecord());
     })();
   }, []);
 
@@ -135,7 +132,7 @@ export default function AdminDashboard() {
                       Registered Users
                     </p>
                     <h3 className="md:text-4xl text-xl font-inter font-bold">
-                      {allUsersCount}
+                      {/* {allUsersCount} */} All Users Count
                     </h3>
                   </div>
                   <FaUsers className="text-yellow-500 text-5xl" />
@@ -148,7 +145,7 @@ export default function AdminDashboard() {
                       Subscribed Users
                     </p>
                     <h3 className="md:text-4xl text-xl font-inter font-bold">
-                      {subscribedCount}
+                      {/* {subscribedCount} */} Subscribed Count
                     </h3>
                   </div>
                   <FaUsers className="text-green-500 text-5xl" />
@@ -178,7 +175,7 @@ export default function AdminDashboard() {
                       Subscription Count
                     </p>
                     <h3 className="md:text-4xl text-xl font-inter font-bold">
-                      {allPayments?.count}
+                      {/* {allPayments?.count} */} Payments Data
                     </h3>
                   </div>
                   <FcSalesPerformance className="text-yellow-500 text-5xl" />
@@ -191,7 +188,7 @@ export default function AdminDashboard() {
                       Total Revenue
                     </p>
                     <h3 className="md:text-4xl text-xl font-inter font-bold">
-                      {allPayments?.count * 499}
+                      {/* {allPayments?.count * 499} */}all Payments Count * 449
                     </h3>
                   </div>
                   <GiMoneyStack className="text-green-500 text-5xl" />
